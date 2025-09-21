@@ -1,0 +1,8 @@
+body {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#team-ranking .table, #detailed-roster .table {
+    margin-top: 1rem;
+}

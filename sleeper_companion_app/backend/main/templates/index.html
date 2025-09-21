@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Find Your Fan Team{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 text-center">
+        <h1 class="mt-5">Sleeper Companion</h1>
+        <p class="lead">Enter your Sleeper username to find out which NFL team you should be rooting for based on your fantasy rosters.</p>
+
+        <form id="username-form" class="mt-4">
+            <div class="input-group mb-3">
+                <input type="text" id="username" class="form-control" placeholder="Sleeper Username" required>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Analyze</button>
+                </div>
+            </div>
+        </form>
+
+        <div id="results" class="mt-5" style="display:none;">
+            <h2>Results for <span id="display-username"></span></h2>
+            <div id="team-ranking" class="text-left"></div>
+            <hr>
+            <h3 class="mt-4">Detailed Roster</h3>
+            <div id="detailed-roster" class="text-left"></div>
+        </div>
+
+        <div id="loading" class="mt-5" style="display:none;">
+            <p>Loading...</p>
+        </div>
+
+        <div id="error" class="alert alert-danger mt-4" style="display:none;" role="alert">
+        </div>
+    </div>
+</div>
+{% endblock %}
