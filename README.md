@@ -27,7 +27,7 @@ Follow these steps to get the application running locally.
 
 1.  **Clone the Repository:**
     ```bash
-    git clone <your-repo-url>
+    git clone https://github.com/azrlmaster/sleeper-fan-helper.git
     cd sleeper-fan-helper # Or your repository's root directory
     ```
 
