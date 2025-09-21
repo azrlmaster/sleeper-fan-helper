@@ -1,5 +1,6 @@
-from flask import jsonify, render_template
+from flask import jsonify, render_template, current_app
 from . import main
+import datetime
 from .. import sleeper_service, ranking_engine
 from ..utils.db import get_db_connection
 
@@ -17,7 +18,8 @@ def get_aggregated_roster(username):
     if not user_id:
         return jsonify({"error": f"User '{username}' not found"}), 404
 
-    current_season = '2024'
+    current_season = str(datetime.datetime.now().year)
+    current_app.logger.info(f"Fetching data for user '{username}' for season '{current_season}'")
     current_week = 1
     leagues = sleeper_service.get_leagues_for_user(user_id, current_season)
     if leagues is None:
