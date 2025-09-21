@@ -129,3 +129,25 @@ A JSON object containing the user's aggregated roster and the ranked list of NFL
   "user": { ... }
 }
 ```
+
+## 6. Using as a Blueprint
+
+This application is designed to be modular and can be integrated into an existing Flask application.
+
+To use it as a blueprint, follow these steps:
+
+1.  **Ensure the `sleeper_companion_app` is in your PYTHONPATH.**
+    If your existing application is in the same project, this should work automatically.
+
+2.  **Import the blueprint object** in your main application file:
+    ```python
+    from sleeper_companion_app.backend.main import main as sleeper_blueprint
+    ```
+
+3.  **Register the blueprint** with your Flask app instance. It is recommended to use a `url_prefix` to avoid route collisions with your existing app.
+    ```python
+    # In your app factory or main app file
+    app.register_blueprint(sleeper_blueprint, url_prefix='/sleeper')
+    ```
+
+Now, all the routes from this application will be available under the `/sleeper` prefix. For example, the web interface will be at `http://<your-app-url>/sleeper/` and the API will be at `http://<your-app-url>/sleeper/api/roster/<username>`.
